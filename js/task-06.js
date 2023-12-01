@@ -14,15 +14,14 @@ function createBoxes(amount) {
 
   if (amount >= 1 && amount <= 100) {
     let boxSize = 30;
+    let markup = "";
 
     for (let i = 0; i < amount; i++) {
-      const box = document.createElement("div");
-      box.style.width = boxSize + "px";
-      box.style.height = boxSize + "px";
-      box.style.backgroundColor = getRandomHexColor();
-      container.append(box);
+      const color = getRandomHexColor();
+      markup += ` <div style="width:${boxSize}px; height:${boxSize}px; background-color:${color}"> </div>`;
       boxSize += 10;
     }
+    container.insertAdjacentHTML("beforeend", markup);
   }
   input.value = "";
 }
